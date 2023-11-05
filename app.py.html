@@ -1,0 +1,16 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def display_players_table():
+    players = [ 
+        {'PlayerID': 'WOOLENCB', 'FirstName': 'Riq', 'LastName': 'Woolen', 'JerseyNo': 27, 'Position': 'Cornerback'},
+        {'PlayerID': 'QDIGGSFS', 'FirstName': 'Quandre', 'LastName': 'Diggs', 'JerseyNo': 6, 'Position': 'Free Safety'}
+    ]
+
+return render_template('players_table.html', players=players)
+
+if __name__ == '__main__':
+    app.run(port=8000, debug=True, host="0.0.0.0")
